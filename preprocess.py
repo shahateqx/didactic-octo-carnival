@@ -78,10 +78,9 @@ def process_subject(row_data):
 
 
 if __name__ == "__main__":
-    sites = ['NeuroIMAGE', 'KKI', 'Pittsburgh', 'Peking_1', 'OHSU', 'WashU', 'Brown']
+    sites = ['NYU', 'KKI', 'NeuroIMAGE', 'OHSU', 'WashU', 'Pittsburgh', 'Peking_1', 'Peking_2', 'Peking_3']
     tasks = []
     
-    print("Gathering tasks from Google Drive...")
     for site in sites:
         site_path = os.path.join(DATASET_ROOT, site)
         pheno_file = os.path.join(site_path, 'participants.tsv')
@@ -122,4 +121,5 @@ if __name__ == "__main__":
     print(f"\nProcessing Complete!")
     print(f"Successfully processed: {len(valid_results)} subjects") 
     np.save(OUTPUT_FILE, valid_results)
+
     print(f"Saved to {OUTPUT_FILE}")
