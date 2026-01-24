@@ -111,7 +111,7 @@ if __name__ == "__main__":
             print(f"Error preparing {site}: {e}")
 
     print(f"Found {len(tasks)} scans.")
-    print(f"Starting Parallel Processing (Direct Drive Access)...")
+    print(f"Starting Parallel Processing...")
     
     results = Parallel(n_jobs=N_JOBS, backend='loky')(
         delayed(process_subject)(t) for t in tqdm(tasks, unit="scan")
@@ -123,3 +123,4 @@ if __name__ == "__main__":
     np.save(OUTPUT_FILE, valid_results)
 
     print(f"Saved to {OUTPUT_FILE}")
+
